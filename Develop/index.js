@@ -1,5 +1,5 @@
 const inquirer = require("inquirer");
-
+const generate = require("generateMarkdown.js")
 
 // array of questions for user
 const questions = [
@@ -26,9 +26,10 @@ const questions = [
             name: "description",
         },
         {
-            type: "input",
+            type: "list",
             message: "What kind of licenses are needed for your project?",
             name: "licenses",
+            choices: ["MIT", "APACHE 2.0", "GPL 3.0", "BSD3", "MST3K", "NONE"],
         },
         {
             type: "input",
@@ -53,7 +54,7 @@ const questions = [
     ])
  .then((data) => { 
     console.log(data);
-    const mdfile = "## `${title}`";
+    const mdfile = "##";
     makeReadMe(mdfile);
         function makeReadMe(mdfile) {
             
@@ -63,6 +64,7 @@ const questions = [
 
 // function to write README file
 function writeToFile(fileName, data) {
+   
 }
 
 // function to initialize program
