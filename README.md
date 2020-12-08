@@ -1,7 +1,9 @@
 # generator-readme
 This README Generator creates a README.md by prompting the user to answer a few questions and generates the document based on the answers given.
 <br>
-You will be asked for 
+<br>
+You will be asked for:
+<br>
 <br>
 Github username<br>
 User email<br>
