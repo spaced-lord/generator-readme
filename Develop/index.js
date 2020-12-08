@@ -1,6 +1,10 @@
 const inquirer = require("inquirer");
 const generate = require("./utils/generateMarkdown");
 const fs = require("fs");
+const { setFlagsFromString } = require("v8");
+const generateMarkdown = require("./utils/generateMarkdown");
+const { userInfo } = require("os");
+const { errorMonitor } = require("stream");
 
 // array of questions for user
 const questions = [
@@ -65,13 +69,33 @@ const questions = [
 
 // function to write README file
 function writeToFile(fileName, data) {
-    
-}
+    fs.writeFile(fileName,data, err => {
+        if (err) {
+            return console.log(err)
+        }
+
+        console.log("Success!")
+    });
+};
+
+const writeFileAsync = util.promisify(writeToFile);
 
 // function to initialize program
 function init() {
+    try {
 
-}
+    // Prompt Inquirer
+    const userResponses = await inquirer.prompt(questions);
+    // Pass answers to Inquirer
+    const markdown = generateMarkdown(userResponses, userInfo);
+    // write markdown
+    await fs.writeFileAsync('ExampleREADME.md', markdown);
+    } 
+    
+    catch (error) {
+        console.log(error);
+    }
+};
 
 // function call to initialize program
 init();
