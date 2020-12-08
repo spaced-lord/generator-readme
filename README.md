@@ -3,7 +3,7 @@ This README Generator creates a README.md by prompting the user to answer a few 
 
 You will be asked for 
 
-Github username
+Github username<br>
 User email
 Name of your project
 License Type
