@@ -60,7 +60,7 @@ function writeToFile(fileName, data) {
             return console.log(err)
         }
 
-        console.log("Bakin' that gooood README")
+        console.log("Boom... README")
     });
 };
 
